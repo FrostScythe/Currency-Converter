@@ -1,22 +1,28 @@
-import React from "react";
-
-function Dropdown() {
+function Dropdown({ title }) {
   return (
-    <div className="p-6">
-      <label className="block text-gray-700 font-medium mb-2">
-        Choose an option
+    <div className="w-full">
+      <label className="block text-sm font-medium text-gray-600 mb-2">
+        {title}
       </label>
-      <select
-        className="w-64 p-3 rounded-lg border border-gray-300
-                   text-gray-700 focus:outline-none 
-                   focus:border-blue-500 focus:ring-2 focus:ring-blue-200 
-                   transition cursor-pointer"
-      >
-        <option value="">Select an option</option>
-        <option value="1">USD</option>
-        <option value="2">INR</option>
-        <option value="3">IDK</option>
-      </select>
+      <div className="relative">
+        <select
+          className="w-full appearance-none p-3 rounded-xl border border-gray-300 
+                     bg-white text-gray-700 shadow-sm
+                     focus:outline-none focus:ring-2 focus:ring-indigo-300 
+                     focus:border-indigo-500 transition cursor-pointer"
+        >
+          <option value="">Select {title}</option>
+          <option value="usd">USD - US Dollar</option>
+          <option value="inr">INR - Indian Rupee</option>
+          <option value="eur">EUR - Euro</option>
+          <option value="jpy">JPY - Japanese Yen</option>
+        </select>
+
+        {/* Custom dropdown arrow */}
+        <span className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-400">
+          ▼
+        </span>
+      </div>
     </div>
   );
 }
